@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Каталог дверей PRESTIGE & BOGEMA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .lang-btn {
+      cursor: pointer;
+      background: #555;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      margin: 0 5px;
+      border-radius: 5px;
+    }
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: 20px auto;
+    }
+    .door {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .door h2 {
+      margin-top: 0;
+      color: #333;
+    }
+    .option {
+      margin: 5px 0;
+    }
+    .total {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #007BFF;
+    }
+    select {
+      padding: 5px;
+      margin-left: 10px;
+    }
+    .uz {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1 class="ru">Каталог дверей</h1>
+  <h1 class="uz">Eshiklar katalogi</h1>
+  <button class="lang-btn" onclick="setLanguage('ru')">RU</button>
+  <button class="lang-btn" onclick="setLanguage('uz')">UZ</button>
+</header>
+
+<div class="container">
+
+  <!-- Массив дверей -->
+  <script>
+    const doors = [
+      {id:'door1', nameRU:'PRESTIGE VIP 1', nameUZ:'PRESTIGE VIP 1', base:1500000},
+      {id:'door2', nameRU:'PRESTIGE VIP 2', nameUZ:'PRESTIGE VIP 2', base:1500000},
+      {id:'door3', nameRU:'PRESTIGE VIP 1 GLASS', nameUZ:'PRESTIGE VIP 1 GLASS', base:1755000},
+      {id:'door4', nameRU:'PRESTIGE VIP 2 GLASS', nameUZ:'PRESTIGE VIP 2 GLASS', base:1625000},
+      {id:'door5', nameRU:'BOGEMA 1', nameUZ:'BOGEMA 1', base:1695000},
+      {id:'door6', nameRU:'VIP Door 6 RU', nameUZ:'VIP Door 6 UZ', base:1600000},
+      {id:'door7', nameRU:'VIP Door 7 RU', nameUZ:'VIP Door 7 UZ', base:1580000},
+      {id:'door8', nameRU:'VIP Door 8 RU', nameUZ:'VIP Door 8 UZ', base:1550000},
+      {id:'door9', nameRU:'VIP Door 9 RU', nameUZ:'VIP Door 9 UZ', base:1700000},
+    ];
+
+    doors.forEach(d => {
+      document.write(`
+        <div class="door" id="${d.id}">
+          <h2 class="ru">${d.nameRU}</h2>
+          <h2 class="uz">${d.nameUZ}</h2>
+          <p class="ru">Базовая цена: <span class="base-price">${d.base}</span> сум</p>
+          <p class="uz">Asosiy narxi: <span class="base-price">${d.base}</span> so‘m</p>
+
+          <div class="option">
+            <span class="ru">Наличник:</span>
+            <span class="uz">Nalichnik:</span>
+            <select class="extra">
+              <option value="0">Нет / Yo‘q</option>
+              <option value="78000">1 шт - 78 000 сум / 1 dona - 78 000 so‘m</option>
+              <option value="195000">Комплект - 195 000 сум / To‘plam - 195 000 so‘m</option>
+            </select>
+          </div>
+
+          <div class="option">
+            <span class="ru">Доборная панель 150 мм:</span>
+            <span class="uz">Dobor paneli 150 mm:</span>
+            <select class="extra">
+              <option value="0">Нет / Yo‘q</option>
+              <option value="104000">1 шт - 104 000 сум / 1 dona - 104 000 so‘m</option>
+              <option value="260000">Комплект - 260 000 сум / To‘plam - 260 000 so‘m</option>
+            </select>
+          </div>
+
+          <div class="option">
+            <span class="ru">Доборная панель 400 мм:</span>
+            <span class="uz">Dobor paneli 400 mm:</span>
+            <select class="extra">
+              <option value="0">Нет / Yo‘q</option>
+              <option value="325000">1 шт - 325 000 сум / 1 dona - 325 000 so‘m</option>
+              <option value="812000">Комплект - 812 000 сум / To‘plam - 812 000 so‘m</option>
+            </select>
+          </div>
+
+          <div class="option">
+            <span class="ru">Замок + 3 петли:</span>
+            <span class="uz">Magnit qulf va 3 ta ilgak:</span>
+            <select class="extra">
+              <option value="0">Нет / Yo‘q</option>
+              <option value="200000">Стандарт - 200 000 сум / Standart - 200 000 so‘m</option>
+            </select>
+          </div>
+
+          <div class="option">
+            <span class="ru">Установка:</span>
+            <span class="uz">O‘rnatish:</span>
+            <select class="extra">
+              <option value="0">Нет / Yo‘q</option>
+              <option value="400000">Да - 400 000 сум / Ha - 400 000 so‘m</option>
+            </select>
+          </div>
+
+          <div class="total">
+            <span class="ru">Итоговая цена: </span>
+            <span class="uz">Umumiy narx: </span>
+            <span class="total-price">${d.base}</span> сум
+          </div>
+        </div>
+      `);
+    });
+  </script>
+
+</div>
+
+<script>
+  // Переключение языка
+  function setLanguage(lang) {
+    document.querySelectorAll('.ru').forEach(el => el.style.display = (lang==='ru') ? 'inline' : 'none');
+    document.querySelectorAll('.uz').forEach(el => el.style.display = (lang==='uz') ? 'inline' : 'none');
+  }
+  setLanguage('ru'); // по умолчанию русский
+
+  // Функция обновления цены
+  function updatePrice(door) {
+    const base = parseInt(door.querySelector('.base-price').textContent);
+    let total = base;
+    door.querySelectorAll('.extra').forEach(sel => total += parseInt(sel.value));
+    door.querySelector('.total-price').textContent = total;
+  }
+
+  // Назначаем обработчик изменения select для каждой двери
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.door').forEach(door => {
+      door.querySelectorAll('.extra').forEach(sel => {
+        sel.addEventListener('change', () => updatePrice(door));
+      });
+      updatePrice(door);
+    });
+  });
+</script>
+
+</body>
+</html>
+
